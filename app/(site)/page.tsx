@@ -12,7 +12,7 @@ export default function Home() {
           width={150}
           className="mx-auto w-auto"
         />
-        <h2 className="mt-8 text-center text-3xl font-bold tracking-tight text-gray-900">
+        <h2 className="mt-2 text-center text-3xl font-bold tracking-tight text-gray-900">
           Sign in to your account
         </h2>
       </div>
