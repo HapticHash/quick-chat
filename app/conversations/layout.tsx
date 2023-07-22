@@ -10,7 +10,7 @@ export default async function ConversationsLayout({
   const coversations = await getCoversations();
   return (
     <Sidebar>
-      <div className="h-full">
+      <div className="h-full bg-gray-50">
         <ConversationList initialItems={coversations} />
         {children}
       </div>
