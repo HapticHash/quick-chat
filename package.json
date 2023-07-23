@@ -29,6 +29,7 @@
     "exiftool-vendored": "^21.5.1",
     "next": "13.4.10",
     "next-auth": "^4.22.3",
+    "next-cloudinary": "^4.15.0",
     "next-images": "^1.8.5",
     "next-superjson-plugin": "^0.5.9",
     "postcss": "8.4.26",
