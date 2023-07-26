@@ -36,36 +36,38 @@ const Form = () => {
   };
 
   return (
-    <div className="py-4 px-4 bg-gray-50/100 border-t flex items-center gap-2 lg:gap-4 w-full">
-      <CldUploadButton
-        options={{ maxFiles: 1 }}
-        onUpload={handleUpload}
-        uploadPreset="aeuv67kl"
-      >
-        <HiPhoto
-          size={34}
-          className="text-[#005fe6] hover:text-[#006aff] cursor-pointer"
-        />
-      </CldUploadButton>
-
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex items-center gap-2 lg:gap-4 w-full"
-      >
-        <MessageInput
-          id="message"
-          register={register}
-          errors={errors}
-          required
-          placeholder="Write a message"
-        />
-        <button
-          type="submit"
-          className="rounded-full p-3 bg-[#005fe6] cursor-pointer hover:bg-[#006aff] transition"
+    <div className="bg-gray-50 mb-3">
+      <div className="py-3 px-4 bg-white flex items-center gap-2 lg:w-[95%] w-full m-auto shadow-md rounded-lg">
+        <CldUploadButton
+          options={{ maxFiles: 1 }}
+          onUpload={handleUpload}
+          uploadPreset="aeuv67kl"
         >
-          <HiPaperAirplane size={18} className="text-white" />
-        </button>
-      </form>
+          <HiPhoto
+            size={34}
+            className="text-[#005fe6] hover:text-[#006aff] cursor-pointer"
+          />
+        </CldUploadButton>
+
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex items-center gap-2 w-full"
+        >
+          <MessageInput
+            id="message"
+            register={register}
+            errors={errors}
+            required
+            placeholder="Write a message"
+          />
+          <button
+            type="submit"
+            className="rounded-full p-3 bg-blue-600 cursor-pointer hover:bg-blue-500 transition"
+          >
+            <HiPaperAirplane size={18} className="text-white" />
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

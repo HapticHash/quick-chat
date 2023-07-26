@@ -23,15 +23,15 @@ const DesktopItem: React.FC<DesktopItemProps> = ({
   };
 
   return (
-    <li onClick={handleClick} key={label}>
+    <li onClick={handleClick} key={label} className="w-full">
       <Link
         href={href}
         className={clsx(
-          `group flex gap-x-3 rounded-full p-3 text-sm leading-6 font-semibold  text-[#005fe6]  hover:text-[#005fe6]  hover:bg-[#e6f0ff]`,
-          active && "bg-[#cce1ff] hover:bg-[#cce1ff] text-[#005fe6]"
+          `group flex justify-center gap-x-4 p-3 text-sm leading-6 font-semibold  text-gray-400 border-r-4 border-white hover:text-blue-600  hover:border-r-4 hover:border-blue-600`,
+          active && "!border-blue-600 text-blue-600"
         )}
       >
-        <Icon className="h-6 w-6 shrink-0" aria-hidden="true" />
+        <Icon className="h-7 w-7 shrink-0" aria-hidden="true" />
         <span className="sr-only">{label}</span>
       </Link>
     </li>

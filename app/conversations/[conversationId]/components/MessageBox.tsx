@@ -24,13 +24,18 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
     .map((user) => user.name)
     .join(", ");
 
-  const container = clsx("flex gap-3 p-4", isOwn && "justify-end");
+  const container = clsx("flex gap-3 py-2 px-4", isOwn && "justify-end");
   const avatar = clsx(isOwn && "order-2");
-  const body = clsx("flex flex-col gap-2", isOwn && "items-end");
+  const body = clsx(
+    "flex flex-col p-3",
+    isOwn
+      ? "items-end bg-blue-600 text-white shadow-md rounded-md"
+      : "bg-sky-500 text-gray-800 shadow-md rounded-md"
+  );
   const message = clsx(
     "text-sm w-fit overflow-hidden",
-    isOwn ? "bg-sky-500 text-white" : "bg-gray-100",
-    data.image ? "rounded-md p-0" : "rounded-full py-2 px-3"
+    isOwn ? "bg-blue-600 text-white" : "bg-sky-500 text-white",
+    data.image ? "p-0" : "py-2 px-3"
   );
 
   return (
@@ -39,9 +44,11 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
         <Avatar user={data.sender} />
       </div>
       <div className={body}>
-        <div className="flex items-center gap-1">
-          <div className="text-sm text-gray-500">{data.sender.name}</div>
-          <div className="text-xs text-gray-400">
+        <div className="flex items-center justify-between gap-2 w-full px-3">
+          <div className="text-sm text-gray-50 font-semibold">
+            {data.sender.name}
+          </div>
+          <div className="text-xs text-gray-100">
             {format(new Date(data.createdAt), "p")}
           </div>
         </div>
