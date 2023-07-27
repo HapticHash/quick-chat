@@ -29,12 +29,12 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
   const body = clsx(
     "flex flex-col p-3",
     isOwn
-      ? "items-end bg-blue-600 text-white shadow-md rounded-md"
-      : "bg-sky-500 text-gray-800 shadow-md rounded-md"
+      ? "items-end bg-blue-600 text-white shadow-sm rounded-md"
+      : "bg-gray-200 text-black shadow-sm rounded-md"
   );
   const message = clsx(
     "text-sm w-fit overflow-hidden",
-    isOwn ? "bg-blue-600 text-white" : "bg-sky-500 text-white",
+    isOwn ? "bg-blue-600 text-white" : "bg-gray-200 text-black",
     data.image ? "p-0" : "py-2 px-3"
   );
 
@@ -45,12 +45,8 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
       </div>
       <div className={body}>
         <div className="flex items-center justify-between gap-2 w-full px-3">
-          <div className="text-sm text-gray-50 font-semibold">
-            {data.sender.name}
-          </div>
-          <div className="text-xs text-gray-100">
-            {format(new Date(data.createdAt), "p")}
-          </div>
+          <div className="text-sm font-semibold">{data.sender.name}</div>
+          <div className="text-xs">{format(new Date(data.createdAt), "p")}</div>
         </div>
         <div className={message}>
           <ImageModal
@@ -72,7 +68,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
           )}
         </div>
         {isLast && isOwn && seenList.length > 0 && (
-          <div className="text-xs font-light text-gray-500">
+          <div className="text-xs font-light text-[#00b3fe]">
             {`Seen by ${seenList}`}
           </div>
         )}

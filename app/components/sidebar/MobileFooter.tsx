@@ -13,7 +13,7 @@ const MobileFooter = () => {
   }
 
   return (
-    <div className="fixed justify-between w-full bottom-0 z-40 flex items-center  bg-white border-t-[1px] lg:hidden">
+    <div className="fixed justify-between w-full bottom-0 z-40 flex items-center  border-[#f8f8f8] bg-white border-t-[1px] lg:hidden">
       {routes.map((route) => (
         <MobileItem
           key={route.href}
