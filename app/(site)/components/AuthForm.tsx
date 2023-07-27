@@ -93,8 +93,8 @@ const AuthForm = () => {
       .finally(() => setIsLoading(false));
   };
   return (
-    <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-      <div className="bg-white px-4 py-8 drop-shadow-lg sm:rounded-lg sm:px-10">
+    <div className="mt-8 w-[95%] mx-auto lg:w-full sm:mx-auto sm:w-full sm:max-w-md">
+      <div className="bg-white px-8 py-8 drop-shadow-lg sm:rounded-lg sm:px-16">
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           {variant === "REGISTER" && (
             <Input

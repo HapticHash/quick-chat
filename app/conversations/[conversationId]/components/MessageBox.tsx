@@ -8,6 +8,7 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useState } from "react";
 import ImageModal from "./ImageModal";
+import { BsCheck2All } from "react-icons/bs";
 
 interface MessageBoxProps {
   data: FullMessageType;
@@ -26,16 +27,11 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
 
   const container = clsx("flex gap-3 py-2 px-4", isOwn && "justify-end");
   const avatar = clsx(isOwn && "order-2");
-  const body = clsx(
-    "flex flex-col p-3",
-    isOwn
-      ? "items-end bg-blue-600 text-white shadow-sm rounded-md"
-      : "bg-gray-200 text-black shadow-sm rounded-md"
-  );
+  const body = clsx("flex flex-col gap-2", isOwn && "items-end");
   const message = clsx(
     "text-sm w-fit overflow-hidden",
     isOwn ? "bg-blue-600 text-white" : "bg-gray-200 text-black",
-    data.image ? "p-0" : "py-2 px-3"
+    data.image ? "rounded-md p-0" : "rounded-full py-2 px-3"
   );
 
   return (
@@ -44,8 +40,10 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
         <Avatar user={data.sender} />
       </div>
       <div className={body}>
-        <div className="flex items-center justify-between gap-2 w-full px-3">
-          <div className="text-sm font-semibold">{data.sender.name}</div>
+        <div className="flex items-center justify-end gap-2 w-full px-3">
+          <div className="text-sm font-semibold text-gray-600">
+            {data.sender.name}
+          </div>
           <div className="text-xs">{format(new Date(data.createdAt), "p")}</div>
         </div>
         <div className={message}>
@@ -68,7 +66,8 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
           )}
         </div>
         {isLast && isOwn && seenList.length > 0 && (
-          <div className="text-xs font-light text-[#00b3fe]">
+          <div className="text-xs font-light text-green-600 flex gap-2">
+            <BsCheck2All size={20} />
             {`Seen by ${seenList}`}
           </div>
         )}

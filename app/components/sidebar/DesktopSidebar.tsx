@@ -27,7 +27,7 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
       />
       <div className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-40 lg:w-20 xl:px-0 lg:overflow-y-auto  lg:bg-white lg:border-r-[2px] lg:border-[#f8f8f8] lg:pb-4 lg:pt-4 lg:flex lg:flex-col justify-between">
         <Image
-          src="/images/logo.png"
+          src="/images/logo_sq.png"
           alt="Logo"
           height={50}
           width={50}
