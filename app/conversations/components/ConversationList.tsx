@@ -69,6 +69,10 @@ const ConversationList: React.FC<ConversationListProps> = ({
       setItems((current) => {
         return [...current.filter((convo) => convo.id !== conversation.id)];
       });
+
+      if (conversationId === conversation.id) {
+        router.push("/conversations");
+      }
     };
 
     pusherClient.bind("conversation:update", updateHandler);
@@ -81,7 +85,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
       pusherClient.bind("conversation:new", newHandler);
       pusherClient.bind("conversation:remove", removeHandler);
     };
-  }, [pusherKey]);
+  }, [pusherKey, conversationId, router]);
 
   return (
     <>
@@ -101,7 +105,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
             <div className="text-2xl font-bold text-neutral-800">Messages</div>
             <div
               onClick={() => setIsModalOpen(true)}
-              className="rounded-full p-3 bg-gray-50 text-[#005fe6] cursor-pointer hover:bg-blue-100 transition"
+              className="rounded-full p-3 bg-gray-50 text-blue-600 cursor-pointer hover:bg-blue-100 transition"
             >
               <MdOutlineGroupAdd size={20} />
             </div>
