@@ -1,31 +1,33 @@
 "use client";
-import useConversation from "@/app/hooks/useConversation";
-import { FullConversationType } from "@/app/types";
-import clsx from "clsx";
+import { User } from "@prisma/client";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { useEffect, useMemo, useState } from "react";
 import { MdOutlineGroupAdd } from "react-icons/md";
-import ConversationBox from "./ConversationBox";
-import GroupChatModal from "./GroupChatModal";
-import { User } from "@prisma/client";
-import { useSession } from "next-auth/react";
+import clsx from "clsx";
+import { find, uniq } from "lodash";
+
+import useConversation from "@/app/hooks/useConversation";
 import { pusherClient } from "@/app/libs/pusher";
-import { find } from "lodash";
+import ConversationBox from "./ConversationBox";
+import { FullConversationType } from "@/app/types";
+import GroupChatModal from "./GroupChatModal";
 
 interface ConversationListProps {
   initialItems: FullConversationType[];
   users: User[];
+  title?: string;
 }
 
 const ConversationList: React.FC<ConversationListProps> = ({
   initialItems,
   users,
 }) => {
-  const session = useSession();
   const [items, setItems] = useState(initialItems);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const router = useRouter();
+  const session = useSession();
 
   const { conversationId, isOpen } = useConversation();
 
@@ -69,23 +71,12 @@ const ConversationList: React.FC<ConversationListProps> = ({
       setItems((current) => {
         return [...current.filter((convo) => convo.id !== conversation.id)];
       });
-
-      if (conversationId === conversation.id) {
-        router.push("/conversations");
-      }
     };
 
     pusherClient.bind("conversation:update", updateHandler);
     pusherClient.bind("conversation:new", newHandler);
     pusherClient.bind("conversation:remove", removeHandler);
-
-    return () => {
-      pusherClient.unsubscribe(pusherKey);
-      pusherClient.bind("conversation:update", updateHandler);
-      pusherClient.bind("conversation:new", newHandler);
-      pusherClient.bind("conversation:remove", removeHandler);
-    };
-  }, [pusherKey, conversationId, router]);
+  }, [pusherKey, router]);
 
   return (
     <>

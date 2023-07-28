@@ -5,7 +5,7 @@ const getUsers = async () => {
   const session = await getSession();
 
   if (!session?.user?.email) {
-    return null;
+    return [];
   }
 
   try {
