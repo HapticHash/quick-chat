@@ -40,7 +40,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
         <Avatar user={data.sender} />
       </div>
       <div className={body}>
-        <div className="flex items-center justify-end gap-2 w-full px-3">
+        <div className="flex items-center gap-1 px-3">
           <div className="text-sm font-semibold text-gray-600">
             {data.sender.name}
           </div>
@@ -62,11 +62,11 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
               className="object-cover cursor-pointer hover:scale-105 transition translate ease-in-out duration-700"
             />
           ) : (
-            <div>{data.body}</div>
+            <div className="px-2 py-1">{data.body}</div>
           )}
         </div>
         {isLast && isOwn && seenList.length > 0 && (
-          <div className="text-xs font-light text-green-600 flex gap-2">
+          <div className="text-xs font-medium text-green-600 flex gap-2">
             <BsCheck2All size={20} />
             {`Seen by ${seenList}`}
           </div>
