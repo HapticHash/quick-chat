@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# QuickChat - Real-Time Messaging Application
 
-## Getting Started
+### Screenshots
 
-First, run the development server:
+![QuickChat - Sign in screen | haptichash](https://raw.githubusercontent.com/HapticHash/quick-chat/master/public/images/sign_in_screen.png)
+![QuickChat - Registration screen | haptichash](https://raw.githubusercontent.com/HapticHash/quick-chat/master/public/images/registration_screen.png)
+![QuickChat - Conversation screen | haptichash](https://raw.githubusercontent.com/HapticHash/quick-chat/master/public/images/conv_screen.png)
+![QuickChat - Profile setting screen | haptichash](https://raw.githubusercontent.com/HapticHash/quick-chat/master/public/images/profile_setting.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+This is a repository for a Real-Time Messaging Application which is built using Next.js 13, React, Tailwind, Prisma, MongoDB, NextAuth, and Pusher.
+
+### Key Features:
+
+- Real-time messaging using Pusher
+- Message notifications and alerts
+- Tailwind design for sleek UI
+- Tailwind animations and transition effects
+- Full responsiveness for all devices
+- Credential authentication with NextAuth
+- Google authentication integration
+- Github authentication integration
+- File and image upload using Cloudinary CDN
+- Client form validation and handling using react-hook-form
+- Server error handling with react-toast
+- Message read receipts
+- Online/offline user status
+- Group chats and one-on-one messaging
+- Message attachments and file sharing
+- User profile customization and settings
+- How to write POST, GET, and DELETE routes in route handlers (app/api)
+- How to fetch data in server React components by directly accessing the database (WITHOUT API! like Magic!)
+- Handling relations between Server and Child components in a real-time environment
+- Creating and managing chat rooms and channels
+
+### Prerequisites
+
+**Node version 14.x**
+
+### Cloning the repository
+
+```shell
+git clone https://github.com/HapticHash/quick-chat.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Install packages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```shell
+npm i
+```
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+### Setup .env file
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```js
+DATABASE_URL=
+NEXTAUTH_SECRET=
 
-## Learn More
+NEXT_PUBLIC_PUSHER_APP_KEY=
+PUSHER_APP_ID=
+PUSHER_SECRET=
 
-To learn more about Next.js, take a look at the following resources:
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+GITHUB_ID=
+GITHUB_SECRET=
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+```
 
-## Deploy on Vercel
+### Setup Prisma
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```shell
+npx prisma db push
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+
+### Start the app
+
+```shell
+npm run dev
+```
+
+## Available commands
+
+Running commands with npm `npm run [command]`
+
+| command | description                              |
+| :------ | :--------------------------------------- |
+| `dev`   | Starts a development instance of the app |
