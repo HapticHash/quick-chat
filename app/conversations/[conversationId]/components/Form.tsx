@@ -36,7 +36,7 @@ const Form = () => {
   };
 
   return (
-    <div className="bg-gray-50 mb-3">
+    <div className="bg-gray-50/50 mb-3">
       <div className="py-3 px-4 bg-white flex items-center gap-2 lg:w-[95%] w-full m-auto shadow-md rounded-lg">
         <CldUploadButton
           options={{ maxFiles: 1 }}

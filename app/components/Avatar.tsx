@@ -29,4 +29,3 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
 };
 
 export default Avatar;
-// 6:53:40

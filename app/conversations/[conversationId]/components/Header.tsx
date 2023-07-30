@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       />
-      <div className="bg-gray-50 w-full flex sm:px-4 py-3 px-4 lg:px-6 justify-between items-center">
+      <div className="bg-gray-50/50 w-full flex sm:px-4 py-3 px-4 lg:px-6 justify-between items-center">
         <div className="flex gap-3 items-center">
           <Link
             href="/conversations"
@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         <HiEllipsisHorizontal
           size={32}
           onClick={() => setDrawerOpen(true)}
-          className="text-sky-500 cursor-pointer hover:text-sky-600 transition"
+          className="text-blue-500 cursor-pointer hover:text-blue-600 transition"
         />
       </div>
     </>

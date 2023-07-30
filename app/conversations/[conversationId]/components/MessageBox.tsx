@@ -27,7 +27,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
 
   const container = clsx("flex gap-3 py-2 px-4", isOwn && "justify-end");
   const avatar = clsx(isOwn && "order-2");
-  const body = clsx("flex flex-col gap-2", isOwn && "items-end");
+  const body = clsx("flex flex-col gap-2 max-w-[70%]", isOwn && "items-end");
   const message = clsx(
     "text-sm w-fit overflow-hidden",
     isOwn ? "bg-blue-600 text-white" : "bg-gray-200 text-black",
